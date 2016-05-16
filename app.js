@@ -10,60 +10,47 @@ $('img[usemap]').maphilight()
   var game = {
     player1: 'black',
     player2: 'white',
+    randomNum: function (min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    $roll: $('#butt'),
+    $dice: $('#dice'),
+    max: function() {
+    compareRoll.push(Number(attackerRoll.splice(attackerRoll.indexOf(Math.max(...attackerRoll)),1).join()))//1. finds max of the array 2. joins and turns it into a string 3. turns it back into a number 4.pushes it to compareRoll array
+    console.log('max num',compareRoll)
+    },
+
   }
 
 attackerRoll = [];
-defenderRoll = [];
 compareRoll = [];
 
-//compareRoll.push(Number(arr.splice(arr.indexOf(Math.max(...arr),1)).join())) //1. finds max of the array 2. joins and turns it into a string 3. turns it back into a number 4.pushes it to compareRoll array
+  var $die1 = game.randomNum(1, 6);
+  var $die2 = game.randomNum(1, 6);
+  var $die3 = game.randomNum(1, 6);
+  var $die4 = game.randomNum(1, 6);
+  var $die5 = game.randomNum(1, 6);
 
-var max = function() {
-  //  for (var i = 0; i < attackerRoll.length; i++) {
-  //    if (attackerRoll[0] >= attackerRoll[1] && attackerRoll[0] > attackerRoll[2] || attackerRoll[0] >= attackerRoll[2] && attackerRoll[0] > attackerRoll[1]){
-  //      compareRoll.push($die1);
-  //    }
-  //    else if (attackerRoll[1] >= attackerRoll[0] && attackerRoll[1]>attackerRoll[2] || attackerRoll[1] >= attackerRoll[2] && attackerRoll[1] > attackerRoll[0]){
-  //      compareRoll.push($die2);
-  //    }
-  //    else {
-  //      compareRoll.push($die3);
-  //    }
-  //  }
-compareRoll.push(Number(attackerRoll.splice(attackerRoll.indexOf(Math.max(...attackerRoll)),1).join()))//1. finds max of the array 2. joins and turns it into a string 3. turns it back into a number 4.pushes it to compareRoll array
-console.log('max num',compareRoll)
-}
-
-
-
-  function randomNum(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-
-  var $die1 = randomNum(1, 6);
-  var $die2 = randomNum(1, 6);
-  var $die3 = randomNum(1, 6);
-  var $die4 = randomNum(1, 6);
-  var $die5 = randomNum(1, 6);
-
-  var $butt = $('#butt')
-
-  var $dice = $('#dice')
-
-  $butt.on('click', function(){
-  $dice.html("Attacker: " + $die1 + ",  " + $die2 + ",  " + $die3 + " " + " Defender: " + $die4 + ", " + $die5);
+  game.$roll.on('click', function(){
+  game.$dice.html("Attacker: " + $die1 + ",  " + $die2 + ",  " + $die3 + " " + " Defender: " + $die4 + ", " + $die5);
   attackerRoll.push($die1,$die2,$die3);
-  defenderRoll.push($die4,$die5)
+  compareRoll.push($die4,$die5)
   console.log(attackerRoll);
-  console.log(defenderRoll);
-  max();
-  max();
+  game.max();
+  game.max();
+  if (compareRoll[0] >= compareRoll[2] && compareRoll[1] >= compareRoll[3]) {
+      console.log('-2 to the attacker');
+  }
+  else if (compareRoll[0] >= compareRoll[2] && compareRoll[1] < compareRoll[3]) {
+    console.log('-1 to the attacker and -1 to the defender')
+  }
+  else if (compareRoll[2] > compareRoll[0] && compareRoll[3] < compareRoll[1]) {
+    console.log('-1 to the defender and -1 to the attacker')
+  }
+  else {
+    console.log('-2 to the defender')
+  }
   })
-
-
-
-
 
   var $continents = {
     $australia: $('.australia'),

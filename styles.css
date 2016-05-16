@@ -1,0 +1,17 @@
+body {
+    background: #1A2131;
+}
+
+#gameBoard {
+/*display: block;
+margin:0 auto;
+width: 90%;
+margin-bottom: 20px;
+}*/
+
+}
+
+#dice {
+  color: white;
+  font-family: fantasy;
+}

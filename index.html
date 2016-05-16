@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Risk</title>
+    <link rel="stylesheet" href="styles.css" media="screen">
+    <script type= "text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
+
+  </head>
+  <body>
+  <h1 id="dice"></h1>
+  <button type="button" id='butt' name="button">BUTTON</button>
+  <img id="gameBoard" src="images/gameboardmap.png" alt="The Gameboard" usemap="#gameboardmap">
+  <map name="gameboardmap">
+  <area class="countries indonesia australia" shape="circle" coords="1260,735,65" title="Indonesia">
+  <area class="countries indonesia australia" shape="circle" coords="1195,705,25" title="Indonesia">
+  <area class="countries newGuinea australia" shape="circle" coords="1430,730,60"  title="newGuinea">
+  <area class="countries westernAus australia" shape="rect"   coords="1200,800,1300,950" title="Western Australia">
+  <area class="countries westernAus australia" shape="rect"   coords="1300,870,1370,950" title="Western Australia">
+  <area class="countries easternAus australia" shape="rect"   coords="1370,870,1550,1000" title="Eastern Australia">
+  <area class="countries easternAus australia" shape="rect"   coords="1300,780,1550,870" title="Eastern Australia">
+  <area class="countries siam asia" shape="circle" coords="1230,600,50" title="Siam">
+  <area class="countries siam asia" shape="circle" coords="1220,650,30" title="Siam">
+  <area class="countries india asia" shape="circle" coords="1057,520,48" title="India">
+  <area class="countries india asia" shape="circle" coords="1120,548,24" title="India">
+  <area class="countries india asia" shape="rect" coords="1020,558,1180,730" title="India">
+  <area class="countries india asia" shape="circle" coords="1170,555,22" title="India">
+  <area class="countries china asia" shape="circle" coords="1254,485,68" title="China">
+  <area class="countries china asia" shape="rect" coords="1080,425,1220,485" title="China">
+  <area class="countries china asia" shape="circle" coords="1150,499,45" title="China">
+  <area class="countries china asia" shape="circle" coords="1130,420,30" title="China">
+  <area class="countries china asia" shape="rect" coords="1140,410,1220,435" title="China">
+  <area class="countries middleEast asia" shape="circle" coords="980,520,42" title="Middle East">
+  <area class="countries middleEast asia" shape="rect" coords="900,520,1020,680" title="Middle East">
+  <area class="countries middleEast asia" shape="rect" coords="850,480,980,540" title="Middle East">
+  <area class="countries middleEast asia" shape="rect" coords="875,480,980,620" title="Middle East">
+  <area class="countries middleEast asia" shape="rect" coords="830,445,920,510" title="Middle East">
+  <area class="countries afghanistan asia" shape="circle" coords="990,400,50" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="960,370,20" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="1060,390,50" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="1040,370,30" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="1050,343,25" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="1047,450,30" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="1020,460,30" title="Afghanistan">
+  <area class="countries afghanistan asia" shape="circle" coords="990,460,20" title="Afghanistan">
+  <area class="countries ural asia" shape="circle" coords="1158,379,18" title="Ural">
+  <area class="countries ural asia" shape="circle" coords="1142,363,25" title="Ural">
+  <area class="countries ural asia" shape="circle" coords="1120,340,25" title="Ural">
+  <area class="countries ural asia" shape="circle" coords="1100,321,25" title="Ural">
+  <area class="countries ural asia" shape="rect" coords="1015,240,1100,310" title="Ural">
+  <area class="countries ural asia" shape="circle" coords="1090,300,35" title="Ural">
+  <area class="countries ural asia" shape="rect" coords="1015,200,1090,250" title="Ural">
+  <area class="countries ural asia" shape="rect" coords="1025,150,1060,210" title="Ural">
+  <area class="countries siberia asia" shape="circle" coords="1200,379,28" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1230,410,15" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1192,350,28" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1180,310,38" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1195,250,44" title="Siberia">
+  <area class="countries siberia asia" shape="rect" coords="1120,220,1170,310" title="Siberia">
+  <area class="countries siberia asia" shape="rect" coords="1104,200,1170,270" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1183,200,44" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1240,175,30" title="Siberia">
+  <area class="countries siberia asia" shape="circle" coords="1155,140,95" title="Siberia">
+  <area class="countries siberia asia" shape="rect" coords="1090,180,1170,230" title="Siberia">
+  <area class="countries yakutsk asia" shape="rect" coords="1270,110,1440,180" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="rect" coords="1260,180,1420,190" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="rect" coords="1258,190,1410,220" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="circle" coords="1403,222,14" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="circle" coords="1250,215,20" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="circle" coords="1255,244,20" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="rect" coords="1240,220,1375,230" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="rect" coords="1240,230,1360,248" title="Yakutsk">
+  <area class="countries yakutsk asia" shape="circle" coords="1335,252,15" title="Yakutsk">
+  <area class="countries irkutsk asia" shape="circle" coords="1260,313,45" title="Irkutsk">
+  <area class="countries irkutsk asia" shape="circle" coords="1295,285,40" title="Irkutsk">
+  <area class="countries mongolia asia" shape="circle" coords="1270,385,36" title="Mongolia">
+  <area class="countries mongolia asia" shape="circle" coords="1242,368,20" title="Mongolia">
+  <area class="countries mongolia asia" shape="rect" coords="1300,320,1332,430" title="Mongolia">
+  <area class="countries mongolia asia" shape="circle" coords="1353,381,33" title="Mongolia">
+  <area class="countries mongolia asia" shape="circle" coords="1335,355,20" title="Mongolia">
+  <area class="countries mongolia asia" shape="circle" coords="1300,360,15" title="Mongolia">
+  <area class="countries mongolia asia" shape="circle" coords="1300,406,20" title="Mongolia">
+  <area class="countries mongolia asia" shape="rect" coords="1332,390,1360,460" title="Mongolia">
+  <area class="countries japan asia" shape="rect" coords="1360,430,1450,490" title="Japan">
+  <area class="countries japan asia" shape="rect" coords="1375,410,1450,440" title="Japan">
+  <area class="countries japan asia" shape="rect" coords="1390,380,1450,410" title="Japan">
+  <area class="countries japan asia" shape="rect" coords="1395,355,1450,380" title="Japan">
+  <area class="countries japan asia" shape="rect" coords="1390,296,1420,355" title="Japan">
+  <area class="countries kamchatka asia" shape="rect" coords="1380,295,1390,365" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="rect" coords="1370,295,1380,360" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="circle" coords="1357,317,28" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="circle" coords="1357,290,23" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="circle" coords="1357,270,18" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="circle" coords="1378,250,25" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="circle" coords="1420,250,22" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="rect" coords="1435,180,1590,330" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="rect" coords="1420,185,1435,250" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="circle" coords="1420,200,16" title="Kamchatka">
+  <area class="countries kamchatka asia" shape="rect" coords="1435,150,1590,180" title="Kamchatka">
+  <area class="countries ukraine europe" shape="circle" coords="998,320,30" title="Ukraine">
+  <area class="countries ukraine europe" shape="rect" coords="850,220,1015,300" title="Ukraine">
+  <area class="countries ukraine europe" shape="rect" coords="840,145,1015,220" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="998,185,30" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="965,110,35" title="Ukraine">
+  <area class="countries ukraine europe" shape="rect" coords="815,300,978,345" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="825,305,30" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="860,275,30" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="835,360,20" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="858,390,28" title="Ukraine">
+  <area class="countries ukraine europe" shape="rect" coords="815,345,938,375" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="900,390,35" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="920,410,28" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="930,435,20" title="Ukraine">
+  <area class="countries ukraine europe" shape="circle" coords="938,449,20" title="Ukraine">
+  <area class="countries scandanavia europe" shape="circle" coords="797,165,40" title="Scandanavia">
+  <area class="countries scandanavia europe" shape="circle" coords="787,225,60" title="Scandanavia">
+  <area class="countries scandanavia europe" shape="circle" coords="802,158,40" title="Scandanavia">
+  <area class="countries scandanavia europe" shape="circle" coords="859,90,40" title="Scandanavia">
+  <area class="countries scandanavia europe" shape="rect" coords="747,245,787,310" title="Scandanavia">
+  <area class="countries scandanavia europe" shape="rect" coords="710,230,747,295" title="Scandanavia">
+  <area class="countries iceland europe" shape="circle" coords="678,238,30" title="Iceland">
+  <area class="countries greatBritain europe" shape="rect" coords="640,280,710,360" title="Great Britain">
+  <area class="countries greatBritain europe" shape="rect" coords="640,360,686,380" title="Great Britain">
+  <area class="countries greatBritain europe" shape="circle" coords="690,355,20" title="Great Britain">
+  <area class="countries northernEurope europe" shape="circle" coords="743,360,30" title="Northern Europe">
+  <area class="countries northernEurope europe" shape="rect" coords="730,300,750,356" title="Northern Europe">
+  <area class="countries northernEurope europe" shape="circle" coords="783,353,32" title="Northern Europe">
+  <area class="countries northernEurope europe" shape="circle" coords="792,390,16" title="Northern Europe">
+  <area class="countries northernEurope europe" shape="circle" coords="795,385,16" title="Northern Europe">
+  <area class="countries westernEurope europe" shape="circle" coords="670,455,40" title="Western Europe">
+  <area class="countries westernEurope europe" shape="circle" coords="688,426,40" title="Western Europe">
+  <area class="countries westernEurope europe" shape="circle" coords="705,390,20" title="Western Europe">
+  <area class="countries southernEurope europe" shape="circle" coords="745,410,20" title="Southern Europe">
+  <area class="countries southernEurope europe" shape="rect" coords="729,400,820,487" title="Southern Europe">
+  <area class="countries southernEurope europe" shape="circle" coords="767,395,17" title="Southern Europe">
+  <area class="countries southernEurope europe" shape="circle" coords="820,395,18" title="Southern Europe">
+  <area class="countries southernEurope europe" shape="circle" coords="827,425,18" tistle="Southern Europe">
+  <area class="countries southernEurope europe" shape="circle" coords="810,440,18" title="Southern Europe">
+  <area class="countries northAfrica africa" shape="circle" coords="675,652,86" title="North Africa">
+  <area class="countries northAfrica africa" shape="circle" coords="752,660,56" title="North Africa">
+  <area class="countries northAfrica africa" shape="circle" coords="740,733,22" title="North Africa">
+  <area class="countries northAfrica africa" shape="circle" coords="688,558,51" title="North Africa">
+  <area class="countries northAfrica africa" shape="circle" coords="635,570,26" title="North Africa">
+  <area class="countries northAfrica africa" shape="circle" coords="720,518,31" title="North Africa">
+  <area class="countries northAfrica africa" shape="circle" coords="680,528,31" title="North Africa">
+  <area class="countries egypt africa" shape="circle" coords="777,560,44" title="Egypt">
+  <area class="countries egypt africa" shape="circle" coords="830,570,43" title="Egypt">
+  <area class="countries egypt africa" shape="circle" coords="860,600,17" title="Egypt">
+  <area class="countries egypt africa" shape="circle" coords="800,610,20" title="Egypt">
+  <area class="countries eastAfrica africa" shape="circle" coords="850,655,47" title="East Africa">
+  <area class="countries eastAfrica africa" shape="circle" coords="850,695,43" title="East Africa">
+  <area class="countries eastAfrica africa" shape="circle" coords="880,695,33" title="East Africa">
+  <area class="countries eastAfrica africa" shape="circle" coords="900,725,43" title="East Africa">
+  <area class="countries eastAfrica africa" shape="circle" coords="960,700,27" title="East Africa">
+  <area class="countries eastAfrica africa" shape="circle" coords="880,785,38" title="East Africa">
+  <area class="countries eastAfrica africa" shape="circle" coords="864,803,38" title="East Africa">
+  <area class="countries eastAfrica africa" shape="rect" coords="841,840,855,875" title="East Africa">
+  <area class="countries congo africa" shape="circle" coords="804,803,26" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="804,823,22" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="820,843,8" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="750,780,27" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="776,799,20" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="780,770,27" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="790,730,27" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="820,760,26" title="Congo">
+  <area class="countries congo africa" shape="circle" coords="840,755,18" title="Congo">
+  <area class="countries southAfrica africa" shape="rect" coords="725,870,880,1010" title="South Africa">
+  <area class="countries southAfrica africa" shape="circle" coords="875,860s,20" title="South Africa">
+  <area class="countries southAfrica africa" shape="rect" coords="725,815,785,870" title="South Africa">
+  <area class="countries southAfrica africa" shape="circle" coords="747,815,16" title="South Africa">
+  <area class="countries southAfrica africa" shape="circle" coords="797,860,20" title="South Africa">
+  <area class="countries southAfrica africa" shape="circle" coords="825,870,17" title="South Africa">
+  <area class="countries southAfrica africa" shape="circle" coords="835,850,11" title="South Africa">
+  <area class="countries southAfrica africa" shape="circle" coords="832,835,11" title="South Africa">
+  <area class="countries madagascar africa" shape="rect" coords="890,855,950,960" title="Madagascar">
+  <area class="countries argentina southAmerica" shape="rect" coords="340,865,520,1050" title="Argentina">
+  <area class="countries argentina southAmerica" shape="rect" coords="340,805,420,865" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="400,815,20" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="388,800,8" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="365,800,11" title="Argentina">
+  <area class="countries argentina southAmerica" shape="rect" coords="355,773,365,790" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="430,855,18" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="447,862,15" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="425,840,15" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="425,820,10" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="445,835,8" title="Argentina">
+  <area class="countries argentina southAmerica" shape="circle" coords="455,828,8" title="Argentina">
+  <area class="countries peru southAmerica" shape="circle" coords="440,823,8" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="445,816,10" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="443,808,13" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="426,796,13" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="418,780,20" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="400,780,20" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="400,760,23" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="380,794,8" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="380,780,15" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="378,753,25" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="382,725,8" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="370,730,8" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="350,750,25" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="352,720,7" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="326,735,22" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="320,720,18" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="310,708,18" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="310,680,20" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="290,690,18" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="300,675,23" title="Peru">
+  <area class="countries peru southAmerica" shape="circle" coords="335,673,6" title="Peru">
+  <area class="countries brazil southAmerica" shape="rect" coords="440,650,580,780" title="Brazil">
+  <area class="countries brazil southAmerica" shape="rect" coords="462,780,570,865" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="460,842,11" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="450,785,15" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="470,810,15" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="440,745,20" title="Brazil">
+  <area class="countries brazil southAmerica" shape="rect" coords="360,646,440,718" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="430,730,20" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="420,720,20" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="405,720,20" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="368,712,15" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="345,695,20" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="405,640,15" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="480,640,15" title="Brazil">
+  <area class="countries brazil southAmerica" shape="circle" coords="460,655,15" title="Brazil">
+  <area class="countries venezuela southAmerica" shape="circle" coords="455,628,15" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="435,628,20" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="415,610,20" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="400,600,28" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="360,608,37" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="380,635,12" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="330,618,39" title="Venezuela">
+  <area class="countries venezuela southAmerica" shape="circle" coords="337,650,19" title="Venezuela">
+  <area class="countries centralAmerica northAmerica" shape="circle" coords="330,530,45" title="Central America">
+  <area class="countries centralAmerica northAmerica" shape="circle" coords="280,490,35" title="Central America">
+  <area class="countries centralAmerica northAmerica" shape="circle" coords="265,480,35" title="Central America">
+  <area class="countries centralAmerica northAmerica" shape="circle" coords="235,450,15" title="Central America">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="435,510,43" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="400,438,43" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="350,430,33" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="330,440,25" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="315,450,15" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="rect" coords="360,340,400,420" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="rect" coords="400,360,410,420" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="440,405,33" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="460,378,18" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="475,370,12" title="Eastern United States">
+  <area class="countries easternUnitedStates northAmerica" shape="circle" coords="490,355,10" title="Eastern United States">
+  <area class="countries westernUnitedStates northAmerica" shape="rect" coords="210,335,357,400" title="Western United States">
+  <area class="countries westernUnitedStates northAmerica" shape="rect" coords="198,330,255,345" title="Western United States">
+  <area class="countries westernUnitedStates northAmerica" shape="rect" coords="210,400,330,415" title="Western United States">
+  <area class="countries westernUnitedStates northAmerica" shape="rect" coords="210,415,310,439" title="Western United States">
+  <area class="countries westernUnitedStates northAmerica" shape="circle" coords="265,430,20" title="Western United States">
+  <area class="countries westernUnitedStates northAmerica" shape="circle" coords="293,450,7" title="Western United States">
+  <area class="countries westernUnitedStates northAmerica" shape="circle" coords="290,445,9" title="Western United States">
+  <area class="countries alberta northAmerica" shape="rect" coords="195,250,330,330" title="Alberta">
+  <area class="countries alberta northAmerica" shape="rect" coords="181,244,300,250" title="Alberta">
+  <area class="countries alberta northAmerica" shape="rect" coords="185,250,195,270" title="Alberta">
+  <area class="countries ontario northAmerica" shape="rect" coords="333,250,380,333" title="Ontario">
+  <area class="countries ontario northAmerica" shape="rect" coords="330,290,335,333" title="Ontario">
+  <area class="countries ontario northAmerica" shape="rect" coords="380,275,435,333" title="Ontario">
+  <area class="countries ontario northAmerica" shape="circle" coords="383,330,10" title="Ontario">
+  <area class="countries ontario northAmerica" shape="rect" coords="420,305,435,370" title="Ontario">
+  <area class="countries ontario northAmerica" shape="circle" coords="420,342,13" title="Ontario">
+  <area class="countries ontario northAmerica" shape="rect" coords="435,355,455,365" title="Ontario">
+  <area class="countries quebec northAmerica" shape="rect" coords="435,300,576,345" title="Quebec">
+  <area class="countries quebec northAmerica" shape="rect" coords="500,345,576,380" title="Quebec">
+  <area class="countries quebec northAmerica" shape="circle" coords="468,342,20" title="Quebec">
+  <area class="countries quebec northAmerica" shape="circle" coords="445,346,11" title="Quebec">
+  <area class="countries quebec northAmerica" shape="rect" coords="440,280,555,300" title="Quebec">
+  <area class="countries quebec northAmerica" shape="circle" coords="483,260,28" title="Quebec">
+  <area class="countries quebec northAmerica" shape="circle" coords="525,270,22" title="Quebec">
+  <area class="countries greenland northAmerica" shape="rect" coords="360,20,645,230" title="Greenland">
+  <area class="countries greenland northAmerica" shape="rect" coords="360,230,465,250" title="Greenland">
+  <area class="countries greenland northAmerica" shape="circle" coords="576,250,35" title="Greenland">
+  <area class="countries greenland northAmerica" shape="rect" coords="645,20,735,214" title="Greenland">
+  <area class="countries greenland northAmerica" shape="circle" coords="745,75,25" title="Greenland">
+  <area class="countries northwestTerritory northAmerica" shape="rect" coords="163,80,358,240" title="Northwest Territory">
+  <area class="countries northwestTerritory northAmerica" shape="rect" coords="193,230,358,245" title="Northwest Territory">
+  <area class="countries alaska northAmerica" shape="rect" coords="20,130,162,300" title="Alaska">
+  <area class="countries alaska northAmerica" shape="circle" coords="158,271,30" title="Alaska">
+  <area class="countries alaska northAmerica" shape="circle" coords="180,280,15" title="Alaska">
+  </map>
+
+  </body>
+  <script src="app.js"></script>
+</html>

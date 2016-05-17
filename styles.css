@@ -6,6 +6,17 @@
   color: orange;
   text-shadow: 1px 1px black;
 }
+#play1armies{
+  color: white;
+  text-shadow: 1px 1px black;
+}
+#play2armies{
+  color: orange;
+  text-shadow: 1px 1px black;
+}
+#divider{
+  color: blue;
+}
 
 body {
     background: #1A2131;

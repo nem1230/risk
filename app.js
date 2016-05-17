@@ -8,8 +8,8 @@ console.log($('img[usemap]'));
 
   var game = {
     this: console.log('this', this),
-    player1: 'black',
-    player2: 'white',
+    player1: 'white',
+    player2: 'orange',
     randomNum: function (min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
@@ -125,7 +125,9 @@ console.log($('img[usemap]'));
       $start_game: $('#start_game'),
       $territories_Arr: [],
       $player1Territories: [],
-      $player2Territories: []
+      $player2Territories: [],
+      $player1Turn_Armies: $('#play1armies'),
+      $player2Turn_Armies: $('#play2armies'),
   }
 
   function shuffle(array) {
@@ -164,6 +166,8 @@ console.log($('img[usemap]'));
     for (var i =0; i<  game.$player2Territories.length; i++){
         game.$player2Territories[i].css('color', 'orange');
     }
+    game.$player1Turn_Armies.append("<strong> 50</strong>");
+    game.$player2Turn_Armies.append("<strong> 50</strong>");
 })
 
 

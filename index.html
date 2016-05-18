@@ -16,7 +16,8 @@
   <h1 id="play2armies">Player 2 Armies:</h1>
   <button type="button" name="start" id="start_game">Start Game</button>
   <h2 id="dice"></h2>
-  <button type="button" id='butt' name="button">BUTTON</button>
+
+  <button type="button" id='butt' name="button">Roll</button>
   <img id="gameBoard" src="images/gameboardmap.png" alt="The Gameboard" usemap="#gameboardmap">
   <map name="gameboardmap">
   <area data-territory="indonesia" class="countries indonesia australia" shape="circle" coords="1260,735,65" title="Indonesia">
@@ -288,48 +289,48 @@
 
   </map>
 
-  <div class="display game_text"data-country="indonesia" class="territory_dis" id="indonesia_icon"></div>
-  <div class="display game_text"data-country="newGuinea" class="territory_dis" id="newGuinea_icon"></div>
-  <div class="display game_text"data-country="westernAus" class="territory_dis" id="westernAus_icon"></div>
-  <div class="display game_text"data-country="easternAus" class="territory_dis" id="easternAus_icon"></div>
-  <div class="display game_text"data-country="siam" class="territory_dis" id="siam_icon"></div>
-  <div class="display game_text"data-country="india" class="territory_dis" id="india_icon"></div>
-  <div class="display game_text"data-country="china" class="territory_dis" id="china_icon"></div>
-  <div class="display game_text"data-country="middleEast" class="territory_dis" id="middleEast_icon"></div>
-  <div class="display game_text"data-country="afghanistan" class="territory_dis" id="afghanistan_icon"></div>
-  <div class="display game_text"data-country="ural" class="territory_dis" id="ural_icon"></div>
-  <div class="display game_text"data-country="siberia" class="territory_dis" id="siberia_icon"></div>
-  <div class="display game_text"data-country="yakutsk" class="territory_dis" id="yakutsk_icon"></div>
-  <div class="display game_text"data-country="irkutsk" class="territory_dis" id="irkutsk_icon"></div>
-  <div class="display game_text"data-country="mongolia" class="territory_dis" id="mongolia_icon"></div>
-  <div class="display game_text"data-country="japan" class="territory_dis" id="japan_icon"></div>
-  <div class="display game_text"data-country="kamchatka" class="territory_dis" id="kamchatka_icon"></div>
-  <div class="display game_text"data-country="ukraine" class="territory_dis" id="ukraine_icon"></div>
-  <div class="display game_text"data-country="scandanavia" class="territory_dis" id="scandanavia_icon"></div>
-  <div class="display game_text"data-country="iceland" class="territory_dis" id="iceland_icon"></div>
-  <div class="display game_text"data-country="greatBritain" class="territory_dis" id="greatBritain_icon"></div>
-  <div class="display game_text"data-country="northernEurope" class="territory_dis" id="northernEurope_icon"></div>
-  <div class="display game_text"data-country="westernEurope" class="territory_dis" id="westernEurope_icon"></div>
-  <div class="display game_text"data-country="southernEurope" class="territory_dis" id="southernEurope_icon"></div>
-  <div class="display game_text"data-country="northAfrica" class="territory_dis" id="northAfrica_icon"></div>
-  <div class="display game_text"data-country="egypt" class="territory_dis" id="egypt_icon"></div>
-  <div class="display game_text"data-country="eastAfrica" class="territory_dis" id="eastAfrica_icon"></div>
-  <div class="display game_text"data-country="congo" class="territory_dis" id="congo_icon"></div>
-  <div class="display game_text"data-country="southAfrica" class="territory_dis" id="southAfrica_icon"></div>
-  <div class="display game_text"data-country="madagascar" class="territory_dis" id="madagascar_icon"></div>
-  <div class="display game_text"data-country="argentina" class="territory_dis" id="argentina_icon"></div>
-  <div class="display game_text"data-country="peru" class="territory_dis" id="peru_icon"></div>
-  <div class="display game_text"data-country="brazil" class="territory_dis" id="brazil_icon"></div>
-  <div class="display game_text"data-country="venezuela" class="territory_dis" id="venezuela_icon"></div>
-  <div class="display game_text"data-country="centralAmerica" class="territory_dis" id="centralAmerica_icon"></div>
-  <div class="display game_text"data-country="easternUnitedStates" class="territory_dis" id="easternUnitedStates_icon"></div>
-  <div class="display game_text"data-country="westernUnitedStates" class="territory_dis" id="westernUnitedStates_icon"></div>
-  <div class="display game_text"data-country="alberta" class="territory_dis" id="alberta_icon"></div>
-  <div class="display game_text"data-country="ontario" class="territory_dis" id="ontario_icon"></div>
-  <div class="display game_text"data-country="quebec" class="territory_dis" id="quebec_icon"></div>
-  <div class="display game_text"data-country="greenland" class="territory_dis" id="greenland"></div>
-  <div class="display game_text"data-country="northwestTerritory" class="territory_dis" id="northwestTerritory_icon"></div>
-  <div class="display game_text"data-country="alaska" class="territory_dis" id="alaska_icon"></div>
+  <div class="display game_text" data-country-num="1" data-country="indonesia" class="territory_dis" id="indonesia_icon"><span class="title">Indonesia</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="newGuinea" class="territory_dis" id="newGuinea_icon"><span class="title">New Guinea</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="westernAus" class="territory_dis" id="westernAus_icon"><span class="title">Western Australia</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="easternAus" class="territory_dis" id="easternAus_icon"><span class="title">Eastern Australia</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="siam" class="territory_dis" id="siam_icon"><span class="title">Siam</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="india" class="territory_dis" id="india_icon"><span class="title">India</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="china" class="territory_dis" id="china_icon"><span class="title">China</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="middleEast" class="territory_dis" id="middleEast_icon"><span class="title">Middle East</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="afghanistan" class="territory_dis" id="afghanistan_icon"><span class="title">Afghanistan</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="ural" class="territory_dis" id="ural_icon"><span class="title">Ural</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="siberia" class="territory_dis" id="siberia_icon"><span class="title">Siberia</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="yakutsk" class="territory_dis" id="yakutsk_icon"><span class="title">Yakutsk</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="irkutsk" class="territory_dis" id="irkutsk_icon"><span class="title">Irkutsk</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="mongolia" class="territory_dis" id="mongolia_icon"><span class="title">Mongolia</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="japan" class="territory_dis" id="japan_icon"><span class="title">Japan</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="kamchatka" class="territory_dis" id="kamchatka_icon"><span class="title">Kamchatka</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="ukraine" class="territory_dis" id="ukraine_icon"><span class="title">Ukraine</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="scandanavia" class="territory_dis" id="scandanavia_icon"><span class="title">Scandanavia</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="iceland" class="territory_dis" id="iceland_icon"><span class="title">Icleand</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="greatBritain" class="territory_dis" id="greatBritain_icon"><span class="title">Great Britain</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="northernEurope" class="territory_dis" id="northernEurope_icon"><span class="title">Northern Europe</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="westernEurope" class="territory_dis" id="westernEurope_icon"><span class="title">Western Europe</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="southernEurope" class="territory_dis" id="southernEurope_icon"><span class="title">Southern Europe</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="northAfrica" class="territory_dis" id="northAfrica_icon"><span class="title">North Africa</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="egypt" class="territory_dis" id="egypt_icon"><span class="title">Egypt</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="eastAfrica" class="territory_dis" id="eastAfrica_icon"><span class="title">East Africa</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="congo" class="territory_dis" id="congo_icon"><span class="title">Congo</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="southAfrica" class="territory_dis" id="southAfrica_icon"><span class="title">South Africa</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="madagascar" class="territory_dis" id="madagascar_icon"><span class="title">Madagascar</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="argentina" class="territory_dis" id="argentina_icon"><span class="title">Argentina</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="peru" class="territory_dis" id="peru_icon"><span class="title">Peru</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="brazil" class="territory_dis" id="brazil_icon"><span class="title">Brazil</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="venezuela" class="territory_dis" id="venezuela_icon"><span class="title">Venezuela</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="centralAmerica" class="territory_dis" id="centralAmerica_icon"><span class="title">Central America</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="easternUnitedStates" class="territory_dis" id="easternUnitedStates_icon"><span class="title">Eastern United States</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="westernUnitedStates" class="territory_dis" id="westernUnitedStates_icon"><span class="title">Western United States</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="alberta" class="territory_dis" id="alberta_icon"><span class="title">Alberta</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="ontario" class="territory_dis" id="ontario_icon"><span class="title">Ontario</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="quebec" class="territory_dis" id="quebec_icon"><span class="title">Quebec</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="greenland" class="territory_dis" id="greenland_icon"><span class="title">Greenland</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="northwestTerritory" class="territory_dis" id="northwestTerritory_icon"><span class="title">Northwest Territory</span><div class="count"></div></div>
+  <div class="display game_text" data-country-num="1" data-country="alaska" class="territory_dis" id="alaska_icon"><span class="title">Alaska</span><div class="count"></div></div>
 
 
   </body>

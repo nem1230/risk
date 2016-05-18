@@ -30,6 +30,11 @@ margin-bottom: 20px;
 }*/
 position: absolute;
 }
+#player1Turn{
+  position: absolute;
+  display: block;
+  margin-left: 400px:
+}
 
 #dice {
   color: white;
@@ -49,31 +54,31 @@ position: absolute;
   height: 0px;
   width: 0px;
   margin-top: 658px;
-  margin-left: 1255px;
+  margin-left: 1263px;
 }
 #newGuinea_icon {
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 677px;
-  margin-left: 1440px;
+  margin-top: 650px;
+  margin-left: 1471px;
 }
 #westernAus_icon {
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 786px;
-  margin-left: 1280px;
+  margin-top: 832px;
+  margin-left: 1290px;
 }
 #easternAus_icon {
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 809px;
-  margin-left: 1434px;
+  margin-top: 796px;
+  margin-left: 1397px;
 }
 #siam_icon {
   position: absolute;
@@ -88,8 +93,8 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 529px;
-  margin-left: 1117px;
+  margin-top: 518px;
+  margin-left: 1137px;
 }
 #china_icon{
   position: absolute;
@@ -136,8 +141,8 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 150px;
-  margin-left: 1339px;
+  margin-top: 158px;
+  margin-left: 1359px;
 }
 #irkutsk_icon{
   position: absolute;
@@ -176,8 +181,8 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 211px;
-  margin-left: 912px;
+  margin-top: 232px;
+  margin-left: 949px;
 }
 #scandanavia_icon{
   position: absolute;
@@ -192,7 +197,7 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 191px;
+  margin-top: 169px;
   margin-left: 711px;
 }
 #greatBritain_icon{
@@ -225,7 +230,7 @@ position: absolute;
   height: 0px;
   width: 0px;
   margin-top: 379px;
-  margin-left: 803px;
+  margin-left: 821px;
 }
 #northAfrica_icon{
   position: absolute;
@@ -233,7 +238,7 @@ position: absolute;
   height: 0px;
   width: 0px;
   margin-top: 564px;
-  margin-left: 681px;
+  margin-left: 724px;
 }
 #egypt_icon{
   position: absolute;
@@ -256,7 +261,7 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 702px;
+  margin-top: 714px;
   margin-left: 828px;
 }
 #southAfrica_icon{
@@ -264,15 +269,15 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 832px;
-  margin-left: 804px;
+  margin-top: 831px;
+  margin-left: 833px;
 }
 #madagascar_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 832px;
+  margin-top: 796px;
   margin-left: 953px;
 }
 #argentina_icon{
@@ -280,23 +285,23 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 813px;
-  margin-left: 418px;
+  margin-top: 799px;
+  margin-left: 427px;
 }
 #peru_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 712px;
-  margin-left: 383px;
+  margin-top: 693px;
+  margin-left: 407px;
 }
 #brazil_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 631px;
+  margin-top: 646px;
   margin-left: 504px;
 }
 #venezuela_icon{
@@ -304,47 +309,47 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 560px;
-  margin-left: 374px;
+  margin-top: 557px;
+  margin-left: 387px;
 }
 #centralAmerica_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 441px;
-  margin-left: 307px;
+  margin-top: 423px;
+  margin-left: 327px;
 }
 #easternUnitedStates_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 345px;
-  margin-left: 418px;
+  margin-top: 331px;
+  margin-left: 432px;
 }
 #westernUnitedStates_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 306px;
-  margin-left: 280px;
+  margin-top: 316px;
+  margin-left: 307px;
 }
 #alberta_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 223px;
-  margin-left: 270px;
+  margin-top: 247px;
+  margin-left: 295px;
 }
 #ontario_icon{
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 227px;
+  margin-top: 241px;
   margin-left: 405px;
 }
 #quebec_icon{
@@ -352,8 +357,8 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 227px;
-  margin-left: 513px;
+  margin-top: 250px;
+  margin-left: 537px;
 }
 #greenland_icon{
   padding-top: 35px;
@@ -362,7 +367,7 @@ position: absolute;
   display: block;
   height: 0px;
   width: 0px;
-  margin-top: 59px;
+  margin-top: 30px;
   margin-left: 640px;
 }
 #northwestTerritory_icon{
@@ -371,7 +376,7 @@ position: absolute;
   height: 0px;
   width: 0px;
   margin-top: 140px;
-  margin-left: 228px;
+  margin-left: 266px;
 }
 #alaska_icon{
   position: absolute;
@@ -379,5 +384,5 @@ position: absolute;
   height: 0px;
   width: 0px;
   margin-top: 135px;
-  margin-left: 99px;
+  margin-left: 150px;
 }

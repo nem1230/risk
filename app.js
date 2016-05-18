@@ -8,8 +8,16 @@ console.log($('img[usemap]'));
 
   var game = {
     this: console.log('this', this),
-    player1: 'white',
-    player2: 'orange',
+
+    player1: {
+      $player1Turn_Armies: $('#play1armies'),
+      army_count: 30
+    },
+
+    player2: {
+      $player2Turn_Armies: $('#play2armies'),
+      army_count: 30
+    },
     randomNum: function (min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
@@ -129,6 +137,15 @@ console.log($('img[usemap]'));
       $player1Turn_Armies: $('#play1armies'),
       $player2Turn_Armies: $('#play2armies'),
   }
+  var currentPlayer = game.player1
+  function switchTurns() {
+    if(currentPlayer== game.player1){
+      currentPlayer = game.player2
+    }
+    else {
+      currentPlayer = game.player1
+    }
+  }
 
   function shuffle(array) {
    var m = array.length, t, i;
@@ -145,6 +162,27 @@ console.log($('img[usemap]'));
 }
 }
 
+
+function start_num() {
+// $('.display').append(territory_num);
+$('div[data-country]').find('.count').html(1)
+
+$('.countries').on('click', function(){
+  //territory_num ++;
+  // console.log($(this));
+  // console.log($(this)[0].dataset.territory);
+  // var country = $(this)[0].dataset.territory
+  var country = $(this).data('territory');
+  var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+  territory_num = Number(territory_num) + 1
+  $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+  $('div[data-country=' + country +']').find('.count').html(territory_num)
+
+       // if the div is included in the player 1 territories array then  perform playercount -- and display it in the html
+  // $('.display').append(territory_num);
+
+})
+  }
 
 
   game.$start_game.on('click',function(){
@@ -166,10 +204,50 @@ console.log($('img[usemap]'));
     for (var i =0; i<  game.$player2Territories.length; i++){
         game.$player2Territories[i].css('color', 'orange');
     }
-    game.$player1Turn_Armies.append("<strong> 50</strong>");
-    game.$player2Turn_Armies.append("<strong> 50</strong>");
+    // game.$player1Turn_Armies.append("<strong> 50</strong>");
+    // game.$player2Turn_Armies.append("<strong> 50</strong>");
+    // var count= 50
+    //  game.$player1Turn_Armies.html('Player 1 Armies: ' + count);
+    //  game.$player2Turn_Armies.html("Player 2 Armies: " + count);
+
+     country_armies();
+     game.$start_game.hide();
+     start_num();
 })
 
+
+// var   player1count= 30;
+// var   player2count= 30;
+function country_armies() {
+  //  player1count= 30;
+  //  player2count= 30;
+   game.player1.$player1Turn_Armies.html('Player 1 Armies: ' + game.player1.army_count);
+   game.player2.$player2Turn_Armies.html('Player 2 Armies: ' + game.player2.army_count);
+   function something(){
+    currentPlayer.army_count --;
+     if (currentPlayer == game.player1) {
+     game.player1.$player1Turn_Armies.html('Player 1 Armies: ' + game.player1.army_count);
+   }
+     else {
+     game.player2.$player2Turn_Armies.html('Player 2 Armies: ' + game.player2.army_count);
+   }
+    if (game.player1.army_count == 0 && game.player2.army_count == 0) {
+       $('.countries').off('click');
+    }
+      else {
+        switchTurns();
+    }
+ }
+$('.countries').on('click', something);
+}
+
+
+// $('#play1Turn').hide()
+// function stop_count() {
+//   if (player1count === 0 && player2count === 0){
+//      $('#play1Turn').show
+// }
+// }
 
 
 
@@ -245,12 +323,21 @@ console.log($('img[usemap]'));
   else {
       console.log('-2 to the defender')
   }
-  })
+})
 
 
-  function switchTurns() {
-    currentPlayer = game.player1;
-    if (currentPlayer = gam.player){
-      currentPlayer = game.player2;
-    }
-  }
+// function placeArmies(){
+//
+// }
+$('#butt').off('click');
+
+function gameplay() {
+
+}
+
+  // var count = 0;
+	// $('.territory').on('click', function(){
+	// 	var territory = $(this).data('territory')
+	// 	var $country = $('.country[data-country=' + territory +']')
+	// 	count ++;
+	// 	$country.html(count)

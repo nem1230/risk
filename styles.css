@@ -40,6 +40,12 @@ position: absolute;
   color: white;
   font-family: fantasy;
 }
+#butt{
+  font-size: 20px;
+}
+#start_game{
+  font-size: 20px;
+}
 .game_text {
   font-size: 20px;
   font-weight: 700;

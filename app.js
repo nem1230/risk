@@ -11,12 +11,12 @@ console.log($('img[usemap]'));
 
     player1: {
       $player1Turn_Armies: $('#play1armies'),
-      army_count: 30
+      army_count: 5
     },
 
     player2: {
       $player2Turn_Armies: $('#play2armies'),
-      army_count: 30
+      army_count: 5
     },
     randomNum: function (min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -136,6 +136,7 @@ console.log($('img[usemap]'));
       $player2Territories: [],
       $player1Turn_Armies: $('#play1armies'),
       $player2Turn_Armies: $('#play2armies'),
+      attackObj: {attacker: "none",defender: "none"}
   }
   var currentPlayer = game.player1
   function switchTurns() {
@@ -173,6 +174,7 @@ $('.countries').on('click', function(){
   // console.log($(this)[0].dataset.territory);
   // var country = $(this)[0].dataset.territory
   var country = $(this).data('territory');
+  console.log('data', $(this).data('territory'))
   var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
   territory_num = Number(territory_num) + 1
   $('div[data-country=' + country +']').attr('data-country-num', territory_num)
@@ -193,9 +195,9 @@ $('.countries').on('click', function(){
     console.log('array exists')
     shuffle(game.$territories_Arr);
     console.log('array shuffled');
-    game.$player1Territories= game.$territories_Arr.slice(0,22);
+    game.$player1Territories= game.$territories_Arr.slice(0,21);
     console.log('player1', game.$player1Territories)
-    game.$player2Territories= game.$territories_Arr.slice(22,43);
+    game.$player2Territories= game.$territories_Arr.slice(21,43);
     console.log('player2', game.$player2Territories);
 
     for (var i = 0; i < game.$player1Territories.length; i++) {
@@ -233,6 +235,8 @@ function country_armies() {
    }
     if (game.player1.army_count == 0 && game.player2.army_count == 0) {
        $('.countries').off('click');
+
+        gamePlay();
     }
       else {
         switchTurns();
@@ -304,24 +308,151 @@ $('.countries').on('click', something);
   var $die4 = game.randomNum(1, 6);
   var $die5 = game.randomNum(1, 6);
 
+
+
   game.$roll.on('click', function(){
+
   game.$dice.html("Attacker: " + $die1 + ",  " + $die2 + ",  " + $die3 + " " + " Defender: " + $die4 + ", " + $die5);
   game.attackerRoll.push($die1,$die2,$die3);
+  if ($die4 > $die5) {
   game.compareRoll.push($die4,$die5)
+}
+  else {
+  game.compareRoll.push($die5,$die4)
+  }
   console.log(game.attackerRoll);
   game.max();
   game.max();
+
   if (game.compareRoll[0] >= game.compareRoll[2] && game.compareRoll[1] >= game.compareRoll[3]) {
-      console.log('-2 to the attacker');
+      console.log('-2 to the attacker')
+      alert('Player 2 Wins!! Click on the attacker country to subtract 2 armies')
+      $('div[data-country]').find('.count')
+
+      $('.countries').on('click', function(){
+        //territory_num ++;
+        // console.log($(this));
+        // console.log($(this)[0].dataset.territory);
+        // var country = $(this)[0].dataset.territory
+        var country = $(this).data('territory');
+        console.log('data', $(this).data('territory'))
+        var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+        territory_num = Number(territory_num) - 2
+        $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+        $('div[data-country=' + country +']').find('.count').html(territory_num)
+          $('.countries').off('click')
+})
+
+
+      // var country = game.attackObj.attacker.data('territory');
+      // console.log('data', game.attackObj.attacker.data('territory'))
+      // var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+      // territory_num = Number(territory_num) - 2
+      // $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+      // $('div[data-country=' + country +']').find('.count').html(territory_num)
+
   }
   else if (game.compareRoll[0] >= game.compareRoll[2] && game.compareRoll[1] < game.compareRoll[3]) {
       console.log('-1 to the attacker and -1 to the defender')
+      alert('')
+      $('div[data-country]').find('.count')
+
+      $('.countries').on('click', function(){
+        //territory_num ++;
+        // console.log($(this));
+        // console.log($(this)[0].dataset.territory);
+        // var country = $(this)[0].dataset.territory
+        var country = $(this).data('territory');
+        console.log('data', $(this).data('territory'))
+        var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+        territory_num = Number(territory_num) - 1
+        $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+        $('div[data-country=' + country +']').find('.count').html(territory_num)
+        var double_click= {clicked1: "",
+                       clicked2: ""}
+        if (double_click.clicked1 == "true"){
+              console.log('clicked1 is filled')
+            double_click.clicked2 = "true"
+        }
+        else if (double_click.clicked1 == "") {
+              console.log('setting clicked1 to true');
+            double_click.clicked1 = "true"
+        }
+        else {
+           $('.countries').off('click')
+         }
+       })
+
+      // var  country= game.attackObj.attacker.data('territory');
+      // var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+      // territory_num = Number(territory_num) - 2;
+      // $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+      // $('div[data-country=' + country +']').find('.count').html(territory_num)
+
   }
-  else if (game.compareRoll[2] > game.compareRoll[0] && game.compareRoll[3] < game.compareRoll[1]) {
-      console.log('-1 to the defender and -1 to the attacker')
+  else if (game.compareRoll[2] > game.compareRoll[0] && game.compareRoll[3] > game.compareRoll[1]) {
+      console.log('-2 to the defender')
+      alert('Player 1 Wins!! Click once on the defender country to subtract 2 armies')
+      $('div[data-country]').find('.count')
+
+      $('.countries').on('click', function(){
+        //territory_num ++;
+        // console.log($(this));
+        // console.log($(this)[0].dataset.territory);
+        // var country = $(this)[0].dataset.territory
+        var country = $(this).data('territory');
+        console.log('data', $(this).data('territory'))
+        var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+        territory_num = Number(territory_num) - 2
+        $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+        $('div[data-country=' + country +']').find('.count').html(territory_num)
+          $('.countries').off('click')
+      })
+
+      // var   country= game.attackObj.attacker.data('data-territory');
+      // var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+      // territory_num = Number(territory_num) - 2;
+      // $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+      // $('div[data-country=' + country +']').find('.count').html(territory_num)
+
   }
   else {
-      console.log('-2 to the defender')
+      console.log('-1 to the defender and 1 to attacker')
+      alert('')
+      $('div[data-country]').find('.count')
+
+      $('.countries').on('click', function(){
+        //territory_num ++;
+        // console.log($(this));
+        // console.log($(this)[0].dataset.territory);
+        // var country = $(this)[0].dataset.territory
+        var country = $(this).data('territory');
+        console.log('data', $(this).data('territory'))
+        var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+        territory_num = Number(territory_num) - 1
+        $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+        $('div[data-country=' + country +']').find('.count').html(territory_num)
+        var double_click= {clicked1: "",
+                       clicked2: ""}
+        if (double_click.clicked1 == "true"){
+              console.log('clicked1 is filled')
+            double_click.clicked2 = "true"
+        }
+        else if (double_click.clicked1 == "") {
+              console.log('setting clicked1 to true');
+            double_click.clicked1 = "true"
+        }
+        else {
+           $('.countries').off('click')
+         }
+       })
+
+      // var    country= game.attackObj.attacker.data('territory');
+      // var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+      // territory_num = Number(territory_num) - 2;
+      // $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+      // $('div[data-country=' + country +']').find('.count').html(territory_num)
+
   }
 })
 
@@ -329,11 +460,38 @@ $('.countries').on('click', something);
 // function placeArmies(){
 //
 // }
-$('#butt').off('click');
 
-function gameplay() {
 
+function gamePlay() {
+    if (game.player1.army_count == 0 && game.player2.army_count == 0) {
+    alert('It is Player 1s turn: Please select a white territory to attack from that contains at least 3 armies then select a territory to attack');
+  }
+  $('.countries').on('click', function(){
+    var country = $(this).data('territory');
+    if (game.attackObj.attacker == "none") {
+       game.attackObj.attacker = country
+       alert('you are attacking from ' + game.attackObj.attacker)
+    }
+    else if (game.attackObj.defender == "none") {
+      game.attackObj.defender = country
+       alert('you are attacking ' + game.attackObj.defender + " .........Roll the dice!!!")
+    }
+    else {
+      attackObj = {attacker: "none",
+                   defender: "none"}
+       console.log(attackObj)
+    }
+})
 }
+    // var territory_num = $('div[data-country=' + country +']').attr('data-country-num')
+    // territory_num = Number(territory_num) + 1
+    // $('div[data-country=' + country +']').attr('data-country-num', territory_num)
+    // $('div[data-country=' + country +']').find('.count').html(territory_num)
+    //
+    //
+    //   $('div[data-country]').find('.count').html(1)
+
+
 
   // var count = 0;
 	// $('.territory').on('click', function(){

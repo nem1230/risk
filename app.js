@@ -2,6 +2,7 @@ var game = {
   player1: {
     $player1Turn_Armies: $('#play1armies'),
     army_count: 5
+
   },
 
   player2: {
@@ -17,6 +18,8 @@ var game = {
     game.compareRoll.push(Number(game.attackerRoll.splice(game.attackerRoll.indexOf(Math.max(...game.attackerRoll)), 1).join())) //1. finds max of the array 2. joins and turns it into a string 3. turns it back into a number 4.pushes it to compareRoll array
     console.log('max num', game.compareRoll)
   },
+  $player1_score: $('#playhead1'),
+  $player2_score: $('#playhead2'),
   attackerRoll: [],
   compareRoll: [],
   $continents: {
@@ -84,6 +87,8 @@ var game = {
   $player2Territories: [],
   $player1Turn_Armies: $('#play1armies'),
   $player2Turn_Armies: $('#play2armies'),
+  $player1_score: $('#playhead1')
+  $player2_score: $('#playhead2')
   attackObj: {
     attacker: "none",
     defender: "none"
@@ -95,7 +100,6 @@ var game = {
   $die5: 0,
 }
 var currentPlayer = game.player1
-
 function switchTurns() {
   if (currentPlayer == game.player1) {
     currentPlayer = game.player2
@@ -168,7 +172,6 @@ game.$start_game.on('click', function() {
   // var count= 50
   //  game.$player1Turn_Armies.html('Player 1 Armies: ' + count);
   //  game.$player2Turn_Armies.html("Player 2 Armies: " + count);
-
   country_armies();
   game.$start_game.hide();
   start_num();
@@ -209,8 +212,8 @@ function $dieReset() {
    game.$die1 = game.randomNum(1,6)
    game.$die2 = game.randomNum(1,6)
    game.$die3 = game.randomNum(1,6)
-   game.$die4 = 6
-   game.$die5 = 6
+   game.$die4 = game.randomNum(1,6)
+   game.$die5 = game.randomNum(1,6)
 }
 
 
@@ -231,7 +234,7 @@ function rollHandler() {
 
   if (game.compareRoll[0] >= game.compareRoll[2] && game.compareRoll[1] >= game.compareRoll[3]) {
     console.log('-2 to the attacker')
-    alert('Player 2 Wins!! Subtracting 2 armies from the attacker.. Roll again')
+    alert('Defense Wins!! Subtracting 2 armies from the attacker. If you have more than 1 army then Roll again!! If not, choose another territory')
     updateCountries(2,0);
     game.compareRoll= [],
     $dieReset();
@@ -251,7 +254,7 @@ function rollHandler() {
 
   } else if (game.compareRoll[0] >= game.compareRoll[2] && game.compareRoll[1] < game.compareRoll[3]) {
     console.log('-1 to the attacker and -1 to the defender')
-    alert('It is a Tie!! -1 to the attacker and -1 to the defender')
+    alert('It is a Tie!! -1 to the attacker and -1 to the defender. If you have more than 1 army then Roll again!! If not, choose another territory')
     updateCountries(1,1);
     game.compareRoll= [],
     $dieReset();
@@ -263,7 +266,7 @@ function rollHandler() {
 
   } else if (game.compareRoll[2] > game.compareRoll[0] && game.compareRoll[3] > game.compareRoll[1]) {
     console.log('-2 to the defender')
-    alert('Player 1 Wins!! Click once on the defender country to subtract 2 armies')
+    alert('Attack Wins!! Subtracting 2 armies from the defender. If you have more than 1 army then Roll again!! If not, choose another territory')
     updateCountries(0,2);
     game.compareRoll= [],
     $dieReset();
@@ -275,7 +278,7 @@ function rollHandler() {
 
   } else {
     console.log('-1 to the defender and 1 to attacker')
-    alert('It is a Tie!! -1 to the attacker and -1 to the defender')
+    alert('It is a Tie!! -1 to the attacker and -1 to the defender. If you have more than 1 army then Roll again!! If not, choose another territory')
     updateCountries(1,1);
     game.compareRoll= [],
     $dieReset();
@@ -288,9 +291,9 @@ function rollHandler() {
   }
 }
 
-function gamePlay1() {
+function gamePlay1(player) {
   if (game.player1.army_count == 0 && game.player2.army_count == 0) {
-    alert('It is Player 1s turn: Please select a white territory to attack from that contains at least 2 armies then select a territory to attack');
+    alert('It is Player 1s turn: Please select a white territory to attack from that contains at least 2 armies. Then select an ADJACENT territory to attack. It is your turn until you no longer have any territories that contain 2 or more armies');
   }
   $('.countries').on('click', function() {
     var country = $(this).data('territory');
@@ -301,33 +304,37 @@ function gamePlay1() {
       game.attackObj.defender = country
       alert('you are attacking ' + game.attackObj.defender + " .........Roll the dice!!!")
     } else {
-      attackObj = {
+      game.attackObj = {
         attacker: "none",
         defender: "none"
       }
-      console.log(attackObj)
+      console.log(game.attackObj)
     }
   })
 }
-function gamePlay2() {
-  alert('It is Player 2s turn: Please select an orange territory to attack from that contains at least 2 armies then select a territory to attack');
-  $('.countries').on('click', function() {
-    var country = $(this).data('territory');
-    if (game.attackObj.attacker == "none") {
-      game.attackObj.attacker = country
-      alert('you are attacking from ' + game.attackObj.attacker)
-    } else if (game.attackObj.defender == "none") {
-      game.attackObj.defender = country
-      alert('you are attacking ' + game.attackObj.defender + " .........Roll the dice!!!")
-    } else {
-      attackObj = {
-        attacker: "none",
-        defender: "none"
-      }
-      console.log(attackObj)
-    }
-  })
-}
+// function gamePlay2() {
+//   alert('It is Player 2s turn: Please select an orange territory to attack from that contains at least 2 armies then select a territory to attack');
+//   $('.countries').on('click', function() {
+//     var country = $(this).data('territory');
+//
+//     console.log($(this))
+//
+//   if  (game.attackObj.attacker == "none") {
+//      game.attackObj.attacker = country
+//       alert('you are attacking from ' + game.attackObj.attacker)
+//     }
+//   else if (game.attackObj.defender == "none"){
+//       game.attackObj.defender = country
+//       alert('you are attacking ' + game.attackObj.defender + " .........Roll the dice!!!")
+//     }
+  // else {
+  //   game.attackObj = {
+  //     attacker: "none",
+  //     defender: "none"
+  //   }
+// }
+//   })
+// }
 
 
 function updateCountries(reduceAttacker, reduceDefender){
@@ -339,26 +346,68 @@ function updateCountries(reduceAttacker, reduceDefender){
   $('div[data-country=' + game.attackObj.attacker + ']').find('.count').html(attacker_num)
   $('div[data-country=' + game.attackObj.defender + ']').attr('data-country-num', defender_num)
   $('div[data-country=' + game.attackObj.defender + ']').find('.count').html(defender_num)
-  if ($('div[data-country=' + game.attackObj.attacker + ']').css('color','white') && attacker_num == 0 || attacker_num == -1){
-  $('div[data-country=' + game.attackObj.attacker + ']').css('color', 'orange');
-  gamePlay2();
- }
- }
-//  else if ($('div[data-country=' + game.attackObj.attacker + ']').css('color', 'orange') && attacker_num == 0 || attacker_num == -1){
-//   $('div[data-country=' + game.attackObj.attacker + ']').css('color', 'white');
-//   gamePlay1();
-//  }
-//  else if ($('div[data-country=' + game.attackObj.defender + ']').css('color','white') && defender_num == 0 || defender_num == -1) {
-//    $('div[data-country=' + game.attackObj.attacker + ']').css('color', 'orange');
-//    gamePlay2();
-//  }
-//  else if ($('div[data-country=' + game.attackObj.defender + ']').css('color','orange') && defender_num == 0 || defender_num == -1) {
-//    $('div[data-country=' + game.attackObj.defender + ']').css('color', 'white');
-//    gamePlay1();
-// }
-// }
+  var reset_numAttack =  function (){
+    if (attacker_num == 0 || attacker_num == -1)  {
+    attacker_num = 1;
+    }
+    else {
+    console.log('score')
+    }
+  }
+  var reset_numDefense = function () {
+    if (defender_num == 0 || defender_num == -1) {
+    defender_num = 1
+    }
+    else {
+    console.log('score')
+    }
+  }
+  if ($('div[data-country=' + game.attackObj.attacker + ']').css('color') == ("rgb(255, 255, 255)") && (attacker_num == 0 || attacker_num == -1)){
 
+    $('div[data-country=' + game.attackObj.attacker + ']').css('color', 'orange');
+    reset_numAttack();
+    console.log('reset_numAttack()');
+    console.log('change attacker from white to orange')
+    game.$player1_score.html('Player 1 Territories: ' + 1)
+  }
 
+  else if ($('div[data-country=' + game.attackObj.attacker + ']').css('color') == ("rgb(255, 165, 0)") && (attacker_num == 0 || attacker_num == -1)){
+   $('div[data-country=' + game.attackObj.attacker + ']').css('color', 'white');
+     reset_numAttack()
+     console.log('reset_numAttack()');
+     console.log('change attacker from orange to white')
+
+  }
+  else if ($('div[data-country=' + game.attackObj.defender + ']').css('color') == ("rgb(255, 255, 255)") && (defender_num == 0 || defender_num == -1)) {
+   $('div[data-country=' + game.attackObj.defender + ']').css('color', 'orange');
+     reset_numDefense()
+     console.log('reset_numDefense');
+     console.log(game.attackObj)
+     console.log('change defender from white to orange')
+
+ }
+  else if ($('div[data-country=' + game.attackObj.defender + ']').css('color') == ("rgb(255, 165, 0)") && (defender_num == 0 || defender_num == -1)) {
+     $('div[data-country=' + game.attackObj.defender + ']').css('color', 'white');
+     reset_numDefense()
+      console.log('reset_numDefense');
+     console.log('change defender from orange to white')
+
+  }
+  else {
+
+  }
+
+}
+
+// function switchTurns2() {
+//   var territory_num = $('div[data-country=' + country + ']').attr('data-country-num')
+//   $('div[data-country=' + country + ']').attr('data-country-num', territory_num)
+//   $('div[data-country=' + country + ']').find('.count').html(territory_num)
+//    if ($('.countries').css('color') == ("rgb(255, 165, 0)") && territory_num < 2){
+//       alert('It is player 2s Turn')
+//    }
+//    console.log('hello')
+// }
 
 
 // var territory_num = $('div[data-country=' + country +']').attr('data-country-num')

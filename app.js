@@ -1,13 +1,18 @@
+// $('img[usemap]').maphilight()
+
 var game = {
   player1: {
     $player1Turn_Armies: $('#play1armies'),
-    army_count: 5
-
+    army_count: 5,
+    $player1_score: $('#playhead1'),
+    $player1_scoring: 0
   },
 
   player2: {
     $player2Turn_Armies: $('#play2armies'),
-    army_count: 5
+    army_count: 5,
+    $player2_score: $('#playhead2'),
+    $player2_scoring: 0
   },
   randomNum: function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -87,8 +92,6 @@ var game = {
   $player2Territories: [],
   $player1Turn_Armies: $('#play1armies'),
   $player2Turn_Armies: $('#play2armies'),
-  $player1_score: $('#playhead1')
-  $player2_score: $('#playhead2')
   attackObj: {
     attacker: "none",
     defender: "none"
@@ -368,7 +371,8 @@ function updateCountries(reduceAttacker, reduceDefender){
     reset_numAttack();
     console.log('reset_numAttack()');
     console.log('change attacker from white to orange')
-    game.$player1_score.html('Player 1 Territories: ' + 1)
+    game.player2.$player2_scoring ++;
+    game.player2.$player2_score.html('Player 2 Territories ' + game.player2.$player2_scoring);
   }
 
   else if ($('div[data-country=' + game.attackObj.attacker + ']').css('color') == ("rgb(255, 165, 0)") && (attacker_num == 0 || attacker_num == -1)){
@@ -376,7 +380,8 @@ function updateCountries(reduceAttacker, reduceDefender){
      reset_numAttack()
      console.log('reset_numAttack()');
      console.log('change attacker from orange to white')
-
+     game.player1.$player1_scoring ++;
+     game.$player1_score.html('Player 1 Territories: ' + game.player1.$player1_scoring)
   }
   else if ($('div[data-country=' + game.attackObj.defender + ']').css('color') == ("rgb(255, 255, 255)") && (defender_num == 0 || defender_num == -1)) {
    $('div[data-country=' + game.attackObj.defender + ']').css('color', 'orange');
@@ -384,18 +389,25 @@ function updateCountries(reduceAttacker, reduceDefender){
      console.log('reset_numDefense');
      console.log(game.attackObj)
      console.log('change defender from white to orange')
-
+     game.player2.$player2_scoring ++;
+     game.player2.$player2_score.html('Player 2 Territories ' + game.player2.$player2_scoring);
  }
   else if ($('div[data-country=' + game.attackObj.defender + ']').css('color') == ("rgb(255, 165, 0)") && (defender_num == 0 || defender_num == -1)) {
      $('div[data-country=' + game.attackObj.defender + ']').css('color', 'white');
      reset_numDefense()
-      console.log('reset_numDefense');
+    console.log('reset_numDefense');
      console.log('change defender from orange to white')
-
+     game.player1.$player1_scoring ++;
+     game.$player1_score.html('Player 1 Territories: ' + game.player1.$player1_scoring)
   }
   else {
 
   }
+
+}
+
+function gameWInner() {
+
 
 }
 

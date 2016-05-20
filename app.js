@@ -3,14 +3,14 @@
 var game = {
   player1: {
     $player1Turn_Armies: $('#play1armies'),
-    army_count: 6,
+    army_count: 10,
     $player1_score: $('#playhead1'),
     $player1_scoring: 0
   },
 
   player2: {
     $player2Turn_Armies: $('#play2armies'),
-    army_count: 6,
+    army_count: 10,
     $player2_score: $('#playhead2'),
     $player2_scoring: 0
   },

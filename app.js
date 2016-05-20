@@ -405,6 +405,8 @@ function getWinner() {
     console.log('game over');
     if (game.player1.$player1_scoring > game.player2.$player2_scoring) {
     alert('Game Over! Player 1 has gained ' + game.player1.$player1_scoring + ' territories to Player 2s ' + game.player2.$player2_scoring)
+  } else if (game.player1.$player1_scoring == game.player2.$player2_scoring) {
+    alert('The Game is a Tie!')
   }
     else {
     alert('Game Over! Player 2 has gained ' + game.player2.$player2_scoring + ' territories to Player 1s ' + game.player1.$player1_scoring);
